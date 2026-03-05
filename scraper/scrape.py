@@ -1,7 +1,8 @@
 #!/usr/bin/env python3
 """
-Scraper for Phil Johnston's personal website (philjohnstonii.com)
+Website scraper for philjohnstonii.com (Squarespace).
 Scrapes profile, resume, and blog content to JSON files.
+Fork and customize for your own site and platform.
 """
 
 import requests

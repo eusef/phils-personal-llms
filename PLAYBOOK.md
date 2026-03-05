@@ -1,6 +1,6 @@
 # Playbook: Turn Any Personal Website Into an LLM-Discoverable API
 
-A repeatable workflow for making your personal website machine-readable. No servers to run, no accounts beyond GitHub, no manual updates after initial setup.
+A repeatable workflow for making your personal website machine-readable. Works with any platform (Squarespace, WordPress, Wix, Hugo, Netlify, Vercel, or anything you can scrape). No servers to run, no accounts beyond GitHub, no manual updates after initial setup.
 
 ## What You End Up With
 
@@ -149,19 +149,24 @@ Verify at `https://yourusername.github.io/your-repo/api/profile.json`
 
 ### 7. Connect Your Website
 
-On your website's hosting platform, set up redirects from the standard llms.txt paths to your GitHub Pages URLs:
+On your website's hosting platform, set up 301 redirects from the standard llms.txt paths to your GitHub Pages URLs. LLM crawlers don't execute JavaScript, so server-side redirects are required.
 
 ```
-/llms.txt      -> https://yourusername.github.io/your-repo/llms.txt
-/llms-full.txt -> https://yourusername.github.io/your-repo/llms-full.txt
+/llms.txt      -> https://yourusername.github.io/your-repo/llms.txt 301
+/llms-full.txt -> https://yourusername.github.io/your-repo/llms-full.txt 301
 ```
 
-For **Squarespace** specifically:
-- Settings > Advanced > URL Mappings
-- Add: `/llms.txt -> https://yourusername.github.io/your-repo/llms.txt 301`
-- Add: `/llms-full.txt -> https://yourusername.github.io/your-repo/llms-full.txt 301`
+Platform-specific instructions:
 
-For **other platforms**: most support 301 redirects or rewrite rules in their config.
+- **Squarespace**: Settings > Advanced > URL Mappings. Add both lines above.
+- **WordPress**: Add `Redirect 301` rules to `.htaccess`, or use `wp_redirect()` in `functions.php`, or use a redirect plugin.
+- **Wix**: Dashboard > SEO Tools > URL Redirect Manager. Add both as 301 redirects.
+- **Netlify / Cloudflare Pages**: Add a `_redirects` file to your site root with both lines.
+- **Vercel**: Add a `redirects` array to `vercel.json`.
+- **Nginx**: Add `location = /llms.txt { return 301 ... }` to your server block.
+- **Static hosts without redirect support**: Host `llms.txt` directly in your site root. You'll need to update it manually or sync it separately.
+
+See the [README](README.md) for full code snippets for each platform.
 
 ## What Worked / Lessons Learned
 
