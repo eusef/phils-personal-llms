@@ -11,8 +11,6 @@
     h2 { font-size: 1.2rem; margin-top: 2rem; margin-bottom: 0.5rem; border-bottom: 1px solid #e0e0e0; padding-bottom: 0.25rem; }
     p { margin-bottom: 1rem; }
     code { background: #f4f4f4; padding: 0.15rem 0.4rem; border-radius: 3px; font-size: 0.9rem; }
-    pre { background: #f4f4f4; padding: 1rem; border-radius: 6px; overflow-x: auto; margin-bottom: 1rem; }
-    pre code { background: none; padding: 0; }
     a { color: #0066cc; }
     .badge { display: inline-block; background: #e8f5e9; color: #2e7d32; padding: 0.2rem 0.6rem; border-radius: 4px; font-size: 0.85rem; margin-bottom: 1rem; }
     table { width: 100%; border-collapse: collapse; margin-bottom: 1rem; }
@@ -38,8 +36,8 @@
   <h2>LLM-Friendly Files</h2>
   <table>
     <tr><th>File</th><th>Description</th></tr>
-    <tr><td class="endpoint"><a href="./llms.txt">/llms.txt</a></td><td>Standard llms.txt with summary and links</td></tr>
-    <tr><td class="endpoint"><a href="./llms-full.txt">/llms-full.txt</a></td><td>Full inline content for direct LLM consumption</td></tr>
+    <tr><td class="endpoint"><a href="./llms.txt">/llms.txt</a></td><td>Standard llms.txt with full inline content</td></tr>
+    <tr><td class="endpoint"><a href="./llms-full.txt">/llms-full.txt</a></td><td>Complete profile for direct LLM consumption</td></tr>
   </table>
 
   <h2>For Agents</h2>
@@ -47,19 +45,11 @@
   <ol style="margin-left: 1.5rem; margin-bottom: 1rem;">
     <li>Read <code>/llms-full.txt</code> for complete inline content</li>
     <li>Or fetch individual JSON endpoints above for structured data</li>
-    <li>The full source and MCP server are at <a href="https://github.com/eusef/phils-personal-mcp">github.com/eusef/phils-personal-mcp</a></li>
   </ol>
-
-  <h2>MCP Server (Optional)</h2>
-  <p>For deeper integration, a stdio-based MCP server is available in the repo. Clone and build:</p>
-  <pre><code>git clone https://github.com/eusef/phils-personal-mcp.git
-cd phils-personal-mcp/server
-npm install && npm run build
-node dist/index.js</code></pre>
 
   <p style="margin-top: 2rem; color: #888; font-size: 0.85rem;">
     <a href="https://philjohnstonii.com">philjohnstonii.com</a> |
-    <a href="https://github.com/eusef/phils-personal-mcp">Source on GitHub</a>
+    <a href="https://github.com/eusef/phils-personal-llms">Source on GitHub</a>
   </p>
 </body>
 </html>

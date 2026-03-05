@@ -53,9 +53,9 @@ Content at Scale: Produced and directed 123+ developer tutorial videos across mu
 
 JSON endpoints (no auth required, updated daily):
 
-- Profile: https://eusef.github.io/phils-personal-mcp/api/profile.json
-- Resume: https://eusef.github.io/phils-personal-mcp/api/resume.json
-- Blog: https://eusef.github.io/phils-personal-mcp/api/blog.json
-- Full content: https://eusef.github.io/phils-personal-mcp/llms-full.txt
+- Profile: https://eusef.github.io/phils-personal-llms/api/profile.json
+- Resume: https://eusef.github.io/phils-personal-llms/api/resume.json
+- Blog: https://eusef.github.io/phils-personal-llms/api/blog.json
+- Full content: https://eusef.github.io/phils-personal-llms/llms-full.txt
 
-Source: https://github.com/eusef/phils-personal-mcp
+Source: https://github.com/eusef/phils-personal-llms
