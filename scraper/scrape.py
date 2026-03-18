@@ -1,7 +1,9 @@
 #!/usr/bin/env python3
 """
 Website scraper for philjohnstonii.com (Squarespace).
-Scrapes profile, resume, and blog content to JSON files.
+Scrapes profile and blog content with special handlers, auto-discovers all
+other nav pages with a generic section-based scraper, and generates llms.txt
+and llms-full.txt from the collected data.
 Fork and customize for your own site and platform.
 """
 
@@ -16,7 +18,11 @@ BASE_URL = "https://philjohnstonii.com"
 SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
 OUTPUT_DIR = os.path.join(SCRIPT_DIR, "..", "data")
 
-# Ensure output directory exists
+# Paths to skip during auto-discovery.
+# "/" and "/blog" are handled by dedicated scrapers below.
+# Add any page you want excluded from the scrape entirely (e.g. "/llms").
+BLACKLISTED_PATHS = {"/", "/blog", "/llms"}
+
 os.makedirs(OUTPUT_DIR, exist_ok=True)
 
 
@@ -34,6 +40,73 @@ def fetch_page(url):
     except requests.RequestException as e:
         print(f"Error fetching {url}: {e}")
         return None
+
+
+def discover_pages():
+    """Discover all internal nav pages from the home page, excluding blacklisted paths."""
+    soup = fetch_page(BASE_URL)
+    if not soup:
+        return []
+
+    pages = []
+    seen = set()
+    for nav in soup.find_all("nav"):
+        for link in nav.find_all("a"):
+            href = link.get("href", "").strip()
+            if not href.startswith("/") or href in seen or href in BLACKLISTED_PATHS:
+                continue
+            seen.add(href)
+            pages.append(href)
+
+    return pages
+
+
+def scrape_page_generic(path):
+    """
+    Generically scrape any page into a list of heading+content sections.
+    Works for any Squarespace (or similar) page without bespoke parsing.
+    """
+    url = urljoin(BASE_URL, path)
+    soup = fetch_page(url)
+    if not soup:
+        return {}
+
+    slug = path.strip("/").replace("/", "-")
+    page = {
+        "path": path,
+        "url": url,
+        "slug": slug,
+        "title": None,
+        "sections": [],
+        "scraped_at": get_timestamp(),
+        "last_updated": get_timestamp()
+    }
+
+    h1 = soup.find("h1")
+    if h1:
+        page["title"] = h1.get_text(strip=True)
+
+    article = soup.find(["article", "main"]) or soup
+    blocks = article.find_all(["h1", "h2", "h3", "h4", "p"])
+
+    current_section = None
+    for block in blocks:
+        text = block.get_text(strip=True)
+        if not text:
+            continue
+        if block.name in ["h1", "h2", "h3", "h4"]:
+            if current_section:
+                page["sections"].append(current_section)
+            current_section = {"heading": text, "level": block.name, "content": []}
+        elif current_section is not None:
+            current_section["content"].append(text)
+        else:
+            page["sections"].append({"heading": None, "level": None, "content": [text]})
+
+    if current_section:
+        page["sections"].append(current_section)
+
+    return page
 
 
 def scrape_home():
@@ -55,41 +128,31 @@ def scrape_home():
         "last_updated": get_timestamp()
     }
 
-    # Look for H1 with name
     h1 = soup.find("h1")
     if h1:
         profile["name"] = h1.get_text(strip=True)
 
-    # Look for tagline/subtitle (common in Squarespace)
     tagline = soup.find("h2")
     if tagline:
         profile["tagline"] = tagline.get_text(strip=True)
 
-    # Extract roles - look for common patterns
-    # Roles are typically listed with emoji prefixes like "👨‍💻 Developer Relations"
     for element in soup.find_all(["p", "div", "span"]):
         text = element.get_text(strip=True)
-        # Look for role-like text (contains common developer/creator roles)
         if any(role in text for role in ["Developer Relations", "Photographer", "Tinkerer", "Developer", "Engineer"]):
-            # Clean up emoji and extract role
             cleaned = text.replace("👨‍💻", "").replace("📸", "").replace("🔧", "").strip()
             if cleaned and cleaned not in profile["roles"]:
                 profile["roles"].append(cleaned)
 
-    # Look for location info
-    location_candidates = soup.find_all(["p", "span"])
-    for candidate in location_candidates:
+    for candidate in soup.find_all(["p", "span"]):
         text = candidate.get_text(strip=True).lower()
         if "based in" in text or "location" in text or any(city in text for city in ["san francisco", "california", "remote"]):
             profile["location"] = candidate.get_text(strip=True)
             break
 
-    # Look for contact form link
     contact_link = soup.find("a", {"href": "/contact"})
     if contact_link:
         profile["contact_form_url"] = urljoin(BASE_URL, "/contact")
     else:
-        # Try common contact form variations
         for link in soup.find_all("a"):
             href = link.get("href", "").lower()
             text = link.get_text(strip=True).lower()
@@ -98,93 +161,6 @@ def scrape_home():
                 break
 
     return profile
-
-
-def scrape_resume():
-    """Scrape /about-me page for resume information."""
-    url = urljoin(BASE_URL, "/about-me")
-    soup = fetch_page(url)
-
-    if not soup:
-        return {}
-
-    resume = {
-        "summary": None,
-        "career_timeline": [],
-        "technical_focus": [],
-        "differentiators": [],
-        "scraped_at": get_timestamp(),
-        "last_updated": get_timestamp()
-    }
-
-    # Extract summary (first few paragraphs)
-    paragraphs = soup.find_all("p")
-    if paragraphs:
-        summary_parts = []
-        for p in paragraphs[:3]:  # First 3 paragraphs as summary
-            text = p.get_text(strip=True)
-            if text and len(text) > 20:  # Skip short placeholders
-                summary_parts.append(text)
-        if summary_parts:
-            resume["summary"] = " ".join(summary_parts)
-
-    # Extract Career Timeline section
-    career_section = None
-    for heading in soup.find_all(["h2", "h3", "h4"]):
-        if "career" in heading.get_text(strip=True).lower() and "timeline" in heading.get_text(strip=True).lower():
-            career_section = heading
-            break
-
-    if career_section:
-        current = career_section.find_next()
-        while current and current.name not in ["h2", "h3", "h4"]:
-            if current.name in ["p", "div"]:
-                text = current.get_text(strip=True)
-                # Look for year patterns like "2020-2022" or "2020 - 2022"
-                if any(char.isdigit() for char in text) and text:
-                    resume["career_timeline"].append(text)
-            current = current.find_next()
-
-    # Extract Technical Focus section (bullet list)
-    tech_section = None
-    for heading in soup.find_all(["h2", "h3", "h4"]):
-        if "technical focus" in heading.get_text(strip=True).lower() or "tech stack" in heading.get_text(strip=True).lower():
-            tech_section = heading
-            break
-
-    if tech_section:
-        current = tech_section.find_next()
-        while current and current.name not in ["h2", "h3", "h4"]:
-            if current.name == "ul":
-                for li in current.find_all("li"):
-                    text = li.get_text(strip=True)
-                    if text:
-                        resume["technical_focus"].append(text)
-                break
-            elif current.name in ["li"]:
-                text = current.get_text(strip=True)
-                if text:
-                    resume["technical_focus"].append(text)
-            current = current.find_next()
-
-    # Extract "What Sets Me Apart" section (differentiators)
-    diff_section = None
-    for heading in soup.find_all(["h2", "h3", "h4"]):
-        heading_text = heading.get_text(strip=True).lower()
-        if any(phrase in heading_text for phrase in ["what sets", "differentiators", "apart", "unique"]):
-            diff_section = heading
-            break
-
-    if diff_section:
-        current = diff_section.find_next()
-        while current and current.name not in ["h2", "h3", "h4"]:
-            if current.name in ["p", "div"]:
-                text = current.get_text(strip=True)
-                if text and len(text) > 15:
-                    resume["differentiators"].append(text)
-            current = current.find_next()
-
-    return resume
 
 
 def scrape_blog_post(post_url):
@@ -204,17 +180,14 @@ def scrape_blog_post(post_url):
         "tags": []
     }
 
-    # Extract title
     title_elem = soup.find("h1")
     if title_elem:
         post["title"] = title_elem.get_text(strip=True)
 
-    # Extract date (look for common date patterns)
     date_elem = soup.find(["time", "span"], {"class": ["date", "post-date", "published"]})
     if date_elem:
         post["date"] = date_elem.get_text(strip=True)
     else:
-        # Look for date in meta or other elements
         for elem in soup.find_all(["span", "p"]):
             text = elem.get_text(strip=True)
             if any(month in text for month in ["January", "February", "March", "April", "May", "June",
@@ -222,7 +195,6 @@ def scrape_blog_post(post_url):
                 post["date"] = text
                 break
 
-    # Extract full content (main article body)
     article = soup.find(["article", "main"])
     if article:
         content_parts = []
@@ -233,14 +205,12 @@ def scrape_blog_post(post_url):
         if content_parts:
             post["full_content"] = " ".join(content_parts)
 
-    # Extract tags (look for common tag patterns)
     tags = soup.find_all("a", {"class": ["tag", "post-tag"]})
     for tag in tags:
         tag_text = tag.get_text(strip=True)
         if tag_text and tag_text not in post["tags"]:
             post["tags"].append(tag_text)
 
-    # If no tags found, look in post content for hashtags or tag-like content
     if not post["tags"]:
         for elem in soup.find_all(["span", "p"]):
             text = elem.get_text(strip=True)
@@ -249,7 +219,6 @@ def scrape_blog_post(post_url):
                 if clean_tag and clean_tag not in post["tags"]:
                     post["tags"].append(clean_tag)
 
-    # Set excerpt if not found (use first 150 chars of full content)
     if not post["excerpt"] and post["full_content"]:
         post["excerpt"] = post["full_content"][:150] + "..."
 
@@ -270,7 +239,6 @@ def scrape_blog():
         "last_updated": get_timestamp()
     }
 
-    # Known blog post URLs to scrape
     known_posts = [
         "/blog/phil-johnston-linkedin-leaving-linkedin-and-choosing-independence",
         "/blog/future-of-micro-niche-ai-tools",
@@ -278,29 +246,23 @@ def scrape_blog():
         "/blog/micro-niche-vibe-coding"
     ]
 
-    # First, try to find blog post links on the listing page
     post_links = set()
     for link in soup.find_all("a"):
         href = link.get("href", "")
         if "/blog/" in href and href not in ["#", ""] and "/category/" not in href:
             full_url = urljoin(BASE_URL, href)
-            # Skip the blog listing page itself
             if not full_url.rstrip("/").endswith("/blog"):
                 post_links.add(full_url)
 
-    # Add known posts if not already found
     for post_path in known_posts:
-        full_url = urljoin(BASE_URL, post_path)
-        post_links.add(full_url)
+        post_links.add(urljoin(BASE_URL, post_path))
 
-    # Scrape each blog post
     for post_url in post_links:
         print(f"Scraping blog post: {post_url}")
         post = scrape_blog_post(post_url)
         if post:
             blog["posts"].append(post)
 
-    # Also extract excerpt from blog listing if available
     for article in soup.find_all("article"):
         title = article.find(["h2", "h3"])
         excerpt = article.find("p")
@@ -316,17 +278,243 @@ def scrape_blog():
                 "full_content": None,
                 "tags": []
             }
-
-            # Try to find URL in article
             link = article.find("a")
             if link and "/blog/" in link.get("href", ""):
                 post["url"] = urljoin(BASE_URL, link.get("href"))
                 post["slug"] = post["url"].split("/blog/")[-1].strip("/")
-
             blog["posts"].append(post)
 
     return blog
 
+
+# ── llms.txt generation ────────────────────────────────────────────────────────
+
+def _find_section(sections, keywords):
+    """Find the first section whose heading contains any keyword (case-insensitive)."""
+    for s in sections:
+        heading = (s.get("heading") or "").lower()
+        if any(kw.lower() in heading for kw in keywords):
+            return s
+    return None
+
+
+def generate_llms_txt():
+    """Generate llms.txt and llms-full.txt from all scraped JSON data."""
+
+    def load_json(filename):
+        filepath = os.path.join(OUTPUT_DIR, filename)
+        if not os.path.exists(filepath):
+            return {}
+        with open(filepath) as f:
+            return json.load(f)
+
+    profile = load_json("profile.json")
+    blog = load_json("blog.json")
+    about = load_json("about-me.json")
+    consulting = load_json("consulting.json")
+
+    # All JSON files in data/ for the API endpoint list (exclude llms files)
+    api_files = sorted(
+        f for f in os.listdir(OUTPUT_DIR)
+        if f.endswith(".json")
+    )
+
+    name = profile.get("name") or "Site Owner"
+    website = profile.get("website_url") or BASE_URL
+    roles = profile.get("roles") or []
+    loc = profile.get("location") or ""
+    contact = profile.get("contact_form_url") or ""
+    tagline = profile.get("tagline") or ""
+    posts = blog.get("posts") or []
+
+    # ── llms.txt (concise) ────────────────────────────────────────────────────
+
+    def build_concise():
+        out = [f"# {name}", ""]
+
+        if tagline:
+            out += [f"> {tagline}", ""]
+
+        # Profile
+        out.append("## Profile")
+        out.append("")
+        if roles:
+            out.append(f"Roles: {', '.join(roles)}")
+        if loc:
+            out.append(f"Location: {loc}")
+        out.append(f"Website: {website}")
+        if contact:
+            out.append(f"Contact form: {contact}")
+        out.append("")
+
+        # Career
+        career = _find_section(about.get("sections", []), ["career", "timeline"])
+        if career and career.get("content"):
+            out.append("## Career")
+            out.append("")
+            for item in career["content"]:
+                out.append(f"- {item}")
+            out.append("")
+
+        # Technical Focus
+        tech = _find_section(about.get("sections", []), ["technical", "tech stack"])
+        if tech and tech.get("content"):
+            out.append("## Technical Focus")
+            out.append("")
+            for item in tech["content"]:
+                out.append(f"- {item}")
+            out.append("")
+
+        # What Sets Apart
+        diff = _find_section(about.get("sections", []), ["sets", "apart", "differentiator"])
+        if diff and diff.get("content"):
+            out.append("## What Sets Me Apart")
+            out.append("")
+            for item in diff["content"]:
+                out.append(item)
+                out.append("")
+
+        # Consulting
+        if consulting.get("sections"):
+            out.append("## Consulting")
+            out.append("")
+            if consulting.get("title"):
+                out += [consulting["title"], ""]
+            for s in consulting["sections"]:
+                heading = s.get("heading") or ""
+                content = s.get("content") or []
+                if not heading:
+                    continue
+                price = next((c for c in content if "$" in c), "")
+                desc = next((c for c in content if "$" not in c and c), "")
+                line = f"- {heading}"
+                if price:
+                    line += f": {price}"
+                if desc:
+                    line += f". {desc}"
+                out.append(line)
+            out += ["", f"Booking: {urljoin(BASE_URL, '/consulting')}", ""]
+
+        # Blog
+        if posts:
+            out.append("## Blog")
+            out.append("")
+            for post in posts:
+                title = post.get("title") or "Untitled"
+                date = post.get("date") or ""
+                url = post.get("url") or ""
+                line = f'- "{title}"'
+                if date:
+                    line += f" - {date}"
+                if url:
+                    line += f": {url}"
+                out.append(line)
+            out.append("")
+
+        # Structured Data API
+        out += ["## Structured Data API", "", "JSON endpoints (no auth required, updated daily):", ""]
+        for fname in api_files:
+            label = fname.replace("-", " ").replace(".json", "").title()
+            out.append(f"- {label}: https://eusef.github.io/auto-llms-txt/api/{fname}")
+        out.append("- Full content: https://eusef.github.io/auto-llms-txt/llms-full.txt")
+        out += ["", "Source: https://github.com/eusef/auto-llms-txt", ""]
+
+        return "\n".join(out)
+
+    # ── llms-full.txt (verbose) ───────────────────────────────────────────────
+
+    def build_full():
+        out = [f"# {name} - Complete Profile", ""]
+
+        if tagline:
+            out += [f"> {tagline}", ""]
+        out += ["---", ""]
+
+        # Profile block
+        out += ["## Profile", ""]
+        out.append(f"Name: {name}")
+        if tagline:
+            out.append(f"Tagline: {tagline}")
+        if roles:
+            out.append(f"Roles: {', '.join(roles)}")
+        if loc:
+            out.append(f"Location: {loc}")
+        out.append(f"Website: {website}")
+        if contact:
+            out.append(f"Contact: {contact}")
+        out += ["", "---", ""]
+
+        # About Me sections
+        about_sections = about.get("sections") or []
+        if about_sections:
+            out += ["## Summary", ""]
+            for s in about_sections:
+                heading = s.get("heading") or ""
+                content = s.get("content") or []
+                if heading:
+                    out += [f"### {heading}", ""]
+                for c in content:
+                    out.append(c)
+                out.append("")
+            out += ["---", ""]
+
+        # Consulting full detail
+        if consulting.get("sections"):
+            out += ["## Consulting", ""]
+            if consulting.get("title"):
+                out += [f"Headline: {consulting['title']}", ""]
+            for s in consulting["sections"]:
+                heading = s.get("heading") or ""
+                content = s.get("content") or []
+                if not heading:
+                    continue
+                out.append(f"### {heading}")
+                price = next((c for c in content if "$" in c), "")
+                desc = next((c for c in content if "$" not in c and c), "")
+                if price:
+                    out.append(f"Price: {price}")
+                if desc:
+                    out.append(f"Description: {desc}")
+                out.append("")
+            out += [f"Booking: {urljoin(BASE_URL, '/consulting')}", "", "---", ""]
+
+        # Blog full posts
+        if posts:
+            out += ["## Blog Posts", ""]
+            for post in posts:
+                title = post.get("title") or "Untitled"
+                date = post.get("date") or ""
+                url = post.get("url") or ""
+                excerpt = post.get("excerpt") or ""
+                tags = post.get("tags") or []
+                out.append(f"### {title}")
+                if date:
+                    out.append(f"Published: {date}")
+                if url:
+                    out.append(f"URL: {url}")
+                if excerpt:
+                    out += ["", excerpt]
+                if tags:
+                    out.append(f"Tags: {', '.join(tags)}")
+                out.append("")
+            out += ["---", ""]
+
+        # Structured Data API
+        out += ["## Structured Data API", "",
+                "All data is available as JSON at these public endpoints (no authentication required, updated daily):", ""]
+        for fname in api_files:
+            label = fname.replace("-", " ").replace(".json", "").title()
+            out.append(f"- {label}: https://eusef.github.io/auto-llms-txt/api/{fname}")
+        out += ["", "Source: https://github.com/eusef/auto-llms-txt", "", "---", "",
+                f"Last updated: {get_timestamp()[:10]}", ""]
+
+        return "\n".join(out)
+
+    save_text("llms.txt", build_concise())
+    save_text("llms-full.txt", build_full())
+
+
+# ── I/O helpers ────────────────────────────────────────────────────────────────
 
 def save_json(filename, data):
     """Save data to JSON file in output directory."""
@@ -335,6 +523,16 @@ def save_json(filename, data):
         json.dump(data, f, indent=2)
     print(f"Saved: {filepath}")
 
+
+def save_text(filename, content):
+    """Save text content to output directory."""
+    filepath = os.path.join(OUTPUT_DIR, filename)
+    with open(filepath, "w") as f:
+        f.write(content)
+    print(f"Saved: {filepath}")
+
+
+# ── Main ───────────────────────────────────────────────────────────────────────
 
 def main():
     """Run the full scrape."""
@@ -347,16 +545,27 @@ def main():
     save_json("profile.json", profile)
     print()
 
-    print("Scraping resume page...")
-    resume = scrape_resume()
-    save_json("resume.json", resume)
-    print()
-
     print("Scraping blog...")
     blog = scrape_blog()
     save_json("blog.json", blog)
     print()
 
+    print("Discovering pages...")
+    pages = discover_pages()
+    print(f"Found: {pages}")
+    print()
+
+    for path in pages:
+        slug = path.strip("/").replace("/", "-")
+        print(f"Scraping {path}...")
+        page_data = scrape_page_generic(path)
+        save_json(f"{slug}.json", page_data)
+
+    print()
+    print("Generating llms.txt and llms-full.txt...")
+    generate_llms_txt()
+
+    print()
     print("Scrape complete!")
 
 
