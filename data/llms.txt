@@ -1,0 +1,39 @@
+# Phil Johnston
+
+> Developer Relations professional, photographer, and builder
+
+## Pages
+
+- [“Phil Johnston LinkedIn” (Leaving LinkedIn and Choosing Independence)](https://philjohnstonii.com/blog): Explore development stories, micro-niche coding projects, and developer 
+insights on Phil Johnston, II's blog. Share and learn about innovative tech 
+workflows.
+- [“Phil Johnston LinkedIn” (Leaving LinkedIn and Choosing Independence)](https://philjohnstonii.com/blog/phil-johnston-linkedin-leaving-linkedin-and-choosing-independence): After nearly two decades on LinkedIn, I lost my account overnight due
+    to a compromise and policy enforcement. I understand LinkedIn’s
+    decision, but the experience forced me to confront how fragile a
+    centralized professional identity really is. This post isn’t about
+    blame. It’s about lessons learned, security realities, and why I’m
+    choosing a more independent path forward.
+- [The Future of Micro-Niche AI Tools](https://philjohnstonii.com/blog/future-of-micro-niche-ai-tools): As someone who’s soon to be less relevant when it comes to technology, I am 
+personally augmenting my workflows to include self-developed tools to help 
+me get my work done. One recent example is a quick script that will test 
+server
+- [Encouraging Developers to Share Their Stories in Their Own Words](https://philjohnstonii.com/blog/encouraging-developers-to-share-their-stories): As a developer relations professional, one of our goals is to highlight the 
+voices of the developers we work with. Recently, I’ve been focusing on 
+inviting developers to share their projects in their own words. Here are 
+some of the tactics and lessons learned along the way.
+- [Micro-niche vibe coding?](https://philjohnstonii.com/blog/micro-niche-vibe-coding): I’ve been vibing lately with terminal UI (TUI) apps. Small personal tools 
+that help me optimize a very specific task or workflow. I call these 
+"Micro-Niche" tools. I can spin these tools up in an afternoon, where 
+before I would have just kept plodding along without them.
+
+This is the project that finally worked!
+- [Phil Johnston, II](https://philjohnstonii.com/home): Phil Johnston - DevRel professional helping API-first companies drive 
+developer adoption and awareness. Creative photographer and tinkerer, from 
+ham radio to AI side projects.
+- [Phil Johnston, II](https://philjohnstonii.com/about-me)
+- [I help API-first companies build developer programs that drive adoption.](https://philjohnstonii.com/consulting)
+
+## About
+
+Source: https://philjohnstonii.com
+Last updated: 2026-03-18

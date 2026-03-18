@@ -1,0 +1,237 @@
+# Phil Johnston — Full Content
+
+> Developer Relations professional, photographer, and builder
+
+---
+
+## “Phil Johnston LinkedIn” (Leaving LinkedIn and Choosing Independence)
+
+URL: https://philjohnstonii.com/blog
+Summary: Explore development stories, micro-niche coding projects, and developer 
+insights on Phil Johnston, II's blog. Share and learn about innovative tech 
+workflows.
+
+“Phil Johnston LinkedIn” (Leaving LinkedIn and Choosing Independence)
+After nearly two decades on LinkedIn, I lost my account overnight due to a compromise and policy enforcement. I understand LinkedIn’s decision, but the experience forced me to confront how fragile a centralized professional identity really is. This post isn’t about blame. It’s about lessons learned, security realities, and why I’m choosing a more independent path forward.
+The Future of Micro-Niche AI Tools
+As someone who’s soon to be less relevant when it comes to technology, I am personally augmenting my workflows to include self-developed tools to help me get my work done.  One recent example is a quick script that will test server…
+Encouraging Developers to Share Their Stories in Their Own Words
+As a developer relations professional, one of our goals is to highlight the voices of the developers we work with. Recently, I’ve been focusing on inviting developers to share their projects in their own words. Here are some of the tactics and lessons learned along the way.
+Micro-niche vibe coding?
+I’ve been vibing lately with terminal UI (TUI) apps. Small personal tools that help me optimize a very specific task or workflow. I call these "Micro-Niche" tools. I can spin these tools up in an afternoon, where before I would have just kept plodding along without them.
+This is the project that finally worked!
+
+---
+
+## “Phil Johnston LinkedIn” (Leaving LinkedIn and Choosing Independence)
+
+URL: https://philjohnstonii.com/blog/phil-johnston-linkedin-leaving-linkedin-and-choosing-independence
+Summary: After nearly two decades on LinkedIn, I lost my account overnight due
+    to a compromise and policy enforcement. I understand LinkedIn’s
+    decision, but the experience forced me to confront how fragile a
+    centralized professional identity really is. This post isn’t about
+    blame. It’s about lessons learned, security realities, and why I’m
+    choosing a more independent path forward.
+
+“Phil Johnston LinkedIn” (Leaving LinkedIn and Choosing Independence)
+This is not a post about being angry at LinkedIn.
+It’s a post about what happens when a single platform becomes too central to your professional identity, and what it feels like when that platform is suddenly gone.
+My LinkedIn account was compromised. Whoever gained access used my account to reach out to people in my network and attempt to recruit them for a startup. That activity violated LinkedIn’s terms of service, and once that line was crossed, the account was unrecoverable. I worked with LinkedIn support and understood their decision. From their perspective, an account that has been used to harm others cannot simply be reset and trusted again.
+That doesn’t make the outcome any less final.
+I joined LinkedIn very early, around 2007 or 2008. Over nearly two decades, I built my professional presence there. Conversations, opportunities, long-running relationships, and roughly 2,000+ contacts accumulated slowly over time. It wasn’t just a list of names. It was a record of a career.
+And then it was gone.
+The experience forced me to confront something I had largely taken for granted: when your professional life is anchored to a single, centralized platform, you don’t really own it. You’re borrowing it. And when access disappears, so does everything attached to it.
+To be clear, this isn’t a moral judgment of LinkedIn. I understand why they enforce their policies the way they do. Abuse prevention requires hard lines. But understanding the reasoning doesn’t change the reality that a compromise, even a brief one, can erase decades of accumulated social capital.
+There’s also a practical lesson here. If you are still using LinkedIn, enable multi-factor authentication. Change your password regularly. I had recently changed mine. I had not enabled MFA. That gap was enough. Security failures are rarely dramatic. They are usually small omissions that compound.
+After losing access, I considered starting over. Creating a new account, rebuilding from scratch, re-adding people where possible. But that idea never sat quite right with me. Not because LinkedIn is bad, but because the fragility of the situation was suddenly obvious. If I rebuilt everything in the same place, I’d still be exposed to the same single point of failure.
+Instead, I decided to step away entirely.
+Going forward, this website is my primary professional home. It’s not optimized for engagement or growth hacks. It’s not governed by changing platform rules. It’s simply a place where my work, my ideas, projects and my contact information live under my control.
+If you want to reach me, the contact form here is the best option. I check it reliably. I’m also present on Mastodon and Bluesky, though I don’t check them as frequently. Think of those as ambient presence, not an inbox.
+This whole experience also made me think more broadly about the shape of professional networks. We’ve already seen that social conversation doesn’t need to live inside a single corporate platform. Mastodon proved that distributed systems can work. There’s no obvious technical reason the same idea couldn’t apply to professional identity and relationships.
+When one company holds decades of your career graph, losing access becomes catastrophic. Portability, federation, and ownership matter more than we like to admit, right up until the moment they’re gone.
+I’m grateful for what LinkedIn enabled for me over the years. It genuinely mattered. This isn’t a rejection of that history.
+It’s simply an acknowledgment that it’s time for something more resilient.
+If you’re reading this and trying to find me, you already have.
+The Future of Micro-Niche AI Tools
+
+---
+
+## The Future of Micro-Niche AI Tools
+
+URL: https://philjohnstonii.com/blog/future-of-micro-niche-ai-tools
+Summary: As someone who’s soon to be less relevant when it comes to technology, I am 
+personally augmenting my workflows to include self-developed tools to help 
+me get my work done. One recent example is a quick script that will test 
+server
+
+The Future of Micro-Niche AI Tools
+Sandcastles at Cannon Beach, Oregon
+We’re just scratching the surface of what AI can do when it comes to creating personalized, on-demand tools. Today, models can generate one-off scripts for data analysis, or automate a few repetitive tasks. But I see a near future where this idea extends far beyond single-use snippets.
+From Code Generation to Tool Creation
+As someone who’s soon to be less relevant when it comes to technology, I am personally augmenting my workflows to include self-developed tools to help me get my work done.  One recent example is a quick script that will test server latency.  Instead of going out and finding a full-fledged tool on the internet where I may or may not have to sign up for a service, I asked an LLM (Gemini CLI) in this case to create a script that would test Latency.  Within minutes I had a script that would clear caches, wait a random amount of time between requests, measure time and generate a human readable report that could be acted upon immediately.
+Right now, AI creates code when you ask for it. For example:
+A Python script to analyze CSV files.
+A SQL query to answer a data question.
+But the real shift will be when AI begins to generate not just snippets, but entire micro-tools designed around you. These tools will feel more like apps than scripts, and they’ll reflect your personal context.
+Examples Across Domains
+Here’s what I mean by “micro-niche” in practice:
+A script that makes a basic collage
+A personalized Triptych/Diptych creator that adapts to your style and past work
+A script that runs a regression
+A full-fledged analysis dashboard tuned to your knowledge level, guiding tone and language
+A quiz generator
+An adaptive learning path that responds to your mental energy and comprehension in real time
+Many of these tools are one-off, but imagine if these tools entered into a toolbox of on-demand tools that have been curated to your needs, personalized to your level of knowledge and tweaked so that the output that is returned is optimized for your learning style. This is huge for humans and a new form of tool usage.
+How Society Views AI Today
+Public sentiment toward AI is mixed—and trending cautious.
+Concern outweighs excitement : Surveys show 52% of U.S. adults are concerned about AI, while just 10% are excited ( Pew Research ).
+Workplace unease : While 82% of firms are expanding AI use, 70% of employees feel uneasy about AI managers ( Investopedia ). “AI shame” has emerged as people hesitate to use AI tools without formal support ( Times of India ).
+Personalization as the Breakthrough
+The key to adoption and breaking through the societal anxiety around AI is personalization at scale.
+AI won’t just answer your question. It will know how you like answers to be structured.
+It won’t just generate code. It will generate tools that look, feel, and adapt to your workflow.
+It won’t just output text. It will tune tone, depth, and complexity based on your current mental state.
+Think of it like a new layer of software creation: instead of going to an app store, you’ll have tools generated in real time, just for you. Do you really need a wallpaper app, or a fart sound app, or even an app to track your water intake.  The only benefit that I see from most apps these days is that they are in your pocket. What about all your AI scripts in your pocket, collecting relevant information for you and presenting it to you when it makes sense. Personalization and access is key.  We are almost there, but the reality of it is unevenly distributed.
+Or as - William Gibson would say,
+“The future is already here – it's just not evenly distributed.”
+Why This Matters
+Accessibility : People who don’t know data science, design, or code will be able to use professional-grade tools.
+Speed : No more hunting for plugins or software updates. The right tool exists when you need it.
+Creativity : Photographers, writers, and makers will have personalized assistants that know their style history and help push it forward.
+Trust : People will only embrace these tools if they feel safe, human-centered, and under their control.
+Critical thinking : Micro-niche tools should enhance human insight, not replace it.
+Micro-niche AI tools won’t replace human creativity. They’ll act more like invisible co-developers, unlocking human creativity. I have experienced this.  Cool “apps” that are really just features have been kicking around in my mind for years, maybe even decades. Only until recently have they just been ideas, now I can throw an LLM at the idea and have it prototyped and iterated a few times before lunch.
+Instead of a future where everyone uses the same software, I see a future where everyone has their own ideas—built for them in the form of software, by AI, in real time.
+“Phil Johnston LinkedIn” (Leaving LinkedIn and Choosing Independence)
+Encouraging Developers to Share Their Stories in Their Own Words
+
+---
+
+## Encouraging Developers to Share Their Stories in Their Own Words
+
+URL: https://philjohnstonii.com/blog/encouraging-developers-to-share-their-stories
+Summary: As a developer relations professional, one of our goals is to highlight the 
+voices of the developers we work with. Recently, I’ve been focusing on 
+inviting developers to share their projects in their own words. Here are 
+some of the tactics and lessons learned along the way.
+
+Encouraging Developers to Share Their Stories in Their Own Words
+As a developer relations professional, one of our goals is to highlight the voices of the developers we work with. Recently, I’ve been focusing on inviting developers to share their projects in their own words. Here are some of the tactics and lessons learned along the way.
+Personal Outreach: A Key Tactic
+One of the main strategies I’ve used is reaching out “individually” to developers who share interesting projects in our forum or Slack channel. I personally invite them to write a post about their project in their own words. This personal touch has been very effective—I’ve had a 100% response rate from the developers I’ve approached so far.
+Leveraging Ghostwriting and Reframing
+Another lesson learned is that sometimes developers are more comfortable if you help them reframe or ghostwrite their initial content. For instance, I took one developer’s lessons learned and turned it into a tutorial, then let them share it themselves with minimal extra work on their part. This approach made it easier for them to participate.
+Cross-Promotion Through Other Outlets
+To boost visibility, I’ve also been highlighting these posts across other media outlets, like our newsletter. While we’re still building broader community engagement, this cross-promotion helps get more eyes on the content and encourages more interaction over time.
+Why Developers’ Own Voices Matter
+It’s important for developers to share in their own words because it adds authenticity and helps build a more genuine community. When developers tell their own stories, it resonates more deeply with their peers and can inspire others to share as well.
+How do you encourage developers who are shy or less confident about sharing their work?
+We focus on creating a supportive environment and offer to help them shape their story so they feel more comfortable sharing.
+What if you don’t have time to individually reach out to every developer?
+Start small and focus on a few key contributors, or consider setting up a process where community members can nominate each other to share.
+How do you measure the success of this approach?
+We look at engagement over time, track how many developers participate, and see how the overall community engagement grows with these authentic stories.
+The Future of Micro-Niche AI Tools
+Micro-niche vibe coding?
+
+---
+
+## Micro-niche vibe coding?
+
+URL: https://philjohnstonii.com/blog/micro-niche-vibe-coding
+Summary: I’ve been vibing lately with terminal UI (TUI) apps. Small personal tools 
+that help me optimize a very specific task or workflow. I call these 
+"Micro-Niche" tools. I can spin these tools up in an afternoon, where 
+before I would have just kept plodding along without them.
+
+This is the project that finally worked!
+
+Micro-niche vibe coding?
+I’ve been vibing lately with terminal UI (TUI) apps. Small personal tools that help me optimize a very specific task or workflow. I call these "Micro-Niche" tools. I can spin these tools up in an afternoon, where before I would have just kept plodding along without them.
+The nn'th project that sparked this
+Over the years I continue to start and stop building these small projects that would benefit my life, but eventually give up due to either getting stuck, running out of time or simply getting distracted.
+The first one that really has improved my workflow has been a TUI tool that allows me to keep up with a community I manage. Basically we have a website that doesn’t really offer an RSS feed in a way that helps me, so using Cursor and a GraphQL endpoint, I was able to write a little TUI reader application that pulls in the most recent messages, presents them to me, allows me to filter out for keywords and then will generate summaries of the threads.
+TUI Reader that helps me in my day job.
+If you are interested you can find it here, but that’s not the point of this article.
+Not exactly something you’d find on Hacker News’ front page, but for me it’s a perfect example of a personal workflow enhancement with custom tooling.
+Workflow + Quake Visor Mode
+I run my app inside iTerm2’s Quake Visor mode with a quick key combo and the TUI drops down like a heads-up display. Read, scan, pop it away. It feels frictionless.
+Before? I’d either avoid the task altogether or waste time flipping between tabs and copy/pasting into Notion, Gemini, ChatGPT or a text editor. The overhead sucked and took me forever to manage.
+Why this works for me
+What I love here is not the specific tool, but the vibe:
+It’s lightweight.
+It’s built for me, not a broad audience.
+It exists because AI made the “too much effort” barrier vanish.
+Years ago, I’d have sketched this out and said “cool idea, let’s build it, but I don’t know Python, so let me start there...” Now I can just let AI scaffold it for me, iterate a few times, get something working and start using it immediately. Then I iterate for a few more days and really insert it into my daily workflow.
+TUIs are underrated in 2025. With a little AI assist, they’ve become my go-to for building **flow tools**: helpers that don’t try to be polished apps, but instead quietly optimize my workflow.
+Do you have some tools you've Vibe-coded to share?
+I’m curious, do you have any personal apps have you created to improve your flow? TUIs, scripts, automations, weird one-offs?
+Encouraging Developers to Share Their Stories in Their Own Words
+
+---
+
+## Phil Johnston, II
+
+URL: https://philjohnstonii.com/home
+Summary: Phil Johnston - DevRel professional helping API-first companies drive 
+developer adoption and awareness. Creative photographer and tinkerer, from 
+ham radio to AI side projects.
+
+Phil Johnston, II
+⚙️ Developer Relations
+Patterns and stories that are both surreal and require dedication to fully understand.
+
+---
+
+## Phil Johnston, II
+
+URL: https://philjohnstonii.com/about-me
+
+Phil Johnston, II
+I've spent 15 years helping developers succeed on platforms most people only read about in press releases.
+At GoPro, I built the Developer Program from zero to 330 partner companies, including NASA, Google, BMW, and Jaguar Land Rover, managing a team of 10 engineers to make it happen. At BMW, I led the application integration program that brought Audible, Pandora, and other household names into the connected car. At HERE Technologies, I onboarded 15,000 developers during a global pandemic and grew a cloud marketplace's addressable market by 2,250x. Most recently at 1Password, I established the company's developer relations vision across open and closed source, led cross-functional GTM, and served as chief developer advocate and content producer.
+My work sits at the intersection of developer experience, technical product strategy, and community building. I think in terms of time-to-first-integration, developer adoption curves, and the content that actually moves people from "browsing the docs" to "shipping in production." I've built RAG-powered tutorial generation systems, custom social media monitoring tools, and the kind of developer marketing programs that produce 123 videos and measurable onboarding results.
+I hold a BS in Computer Science from the University of Portland, where I was an Entrepreneur Scholar. I'm also certified in Prompt Engineering through Dr. Elvis Savaria's program (Facebook Llama Project).
+Portland, OR. Remote-first since 2019.
+Career Timeline
+2024 - Developer Relations, 1Password (Agilebits)
+2021-2023 - Sr. Product Manager, Cloud Marketplace Platform, HERE Technologies
+2019-2021 - Sr. Program Manager, Developer Relations, HERE Technologies
+2014-2017 - Director, GoPro Developer Relations
+2011-2014 - Head of BMW Group Developer Relations
+2008 - BS Computer Science, University of Portland (Entrepreneur Scholar)
+Technical Focus
+GenAI/ML: RAG Implementation, Prompt Engineering, OpenAI APIs
+Platforms: API/SDK Product Management, Developer Experience (DX)
+Cloud: Marketplace Platforms, Self-Service Infrastructure
+Metrics: Developer Adoption, Time-to-Integration, Platform Growth
+What Sets Me Apart
+Zero-to-One DevRel Builder Three times I've built developer relations programs from scratch at companies that had never had one: BMW, GoPro, and 1Password. I know how to make the case internally, hire the team, define the metrics, and ship results before anyone loses patience.
+Enterprise Partnership DNA My developer programs haven't just attracted hobbyists. I've built ecosystems that brought in NASA, Google, BMW, Jaguar Land Rover, JPL, and Hot Wheels. I understand how to design programs that serve both indie builders and Fortune 500 engineering teams.
+2,250x Market Growth At HERE Technologies, I took a cloud API marketplace from a narrow segment to a 2,250x expansion of its serviceable obtainable market. That's not a typo. That's what happens when developer experience strategy meets product management rigor.
+15,000 Developers Onboarded During a Pandemic When COVID shut down every conference and meetup in 2020, I pivoted HERE's developer relations to fully digital, onboarding 15,000 developers and generating 100+ media articles through tutorials, video content, and community engagement.
+AI-Native Practitioner I'm not just talking about AI. I've built RAG-based tutorial generation pipelines, custom social monitoring tools for Bluesky and Mastodon, and I hold a Prompt Engineering certification from the team behind Facebook's Llama project. I bring hands-on GenAI fluency to everything I do.
+Content at Scale Across my career, I've produced and directed 123+ developer tutorial videos, written technical documentation, and served as the on-camera advocate for multiple brands. I understand the full pipeline from scripting to shooting to distribution.
+
+---
+
+## I help API-first companies build developer programs that drive adoption.
+
+URL: https://philjohnstonii.com/consulting
+
+I help API-first companies build developer programs that drive adoption.
+Fractional Head of DevRel
+8 hrs/week ongoing engagement. Strategy, content, developer onboarding, metrics.
+DevRel Program Audit
+One-time deep-dive into existing DevRel efforts. Deliverable: roadmap + recommendations.
+AI DevRel Accelerator
+Implement AI tooling (LLM awareness, tutorial, content) into existing DevRel workflow.
+GoPro : Built program from 0 to 330+ partners (NASA, BMW, Google)
+HERE Technologies : Onboarded 15,000+ developers, grew market 2,250x
+1Password : Established DevRel vision, managed open source program (+900 projects), technical marketing (videos)
+Book a 15-minute call
+
+---
+
+Source: https://philjohnstonii.com
+Last updated: 2026-03-18
