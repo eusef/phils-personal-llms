@@ -131,9 +131,20 @@ def should_skip(url, base_url, exclude_patterns):
     if parsed.fragment and not parsed.path:
         return True
 
-    # Skip configured patterns
+    # Skip configured patterns.
+    # Path patterns (starting with "/"):
+    #   "/blog"  → exact match only — excludes /blog but not /blog/post-slug
+    #   "/cdn-cgi/" → prefix match — excludes /cdn-cgi/anything
+    # Other patterns (e.g. "?format=json"): substring match against the full URL.
     for pattern in exclude_patterns:
-        if pattern in url:
+        if pattern.startswith("/"):
+            if pattern.endswith("/"):
+                if path.startswith(pattern) or path == pattern.rstrip("/"):
+                    return True
+            else:
+                if path == pattern:
+                    return True
+        elif pattern in url:
             return True
 
     return False

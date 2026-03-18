@@ -149,16 +149,25 @@ The scraper skips any URL containing a string in `exclude_patterns`. Use this to
 
 ```json
 "exclude_patterns": [
-  "/llms",        // your own llms page
-  "/cdn-cgi",     // Cloudflare internals
-  "/cart",        // e-commerce
+  "/blog",        // exact path — excludes /blog listing but keeps /blog/post-slug
+  "/home",        // exact path — skip a duplicate home/splash page
+  "/cdn-cgi/",    // trailing slash = prefix match — excludes /cdn-cgi/anything
+  "/tag/",        // prefix match — excludes all tag archive pages
+  "/category/",   // prefix match — excludes all category archive pages
+  "/cart",        // exact path
   "/checkout",
-  "/search",      // dynamic search results
-  "?s=",          // WordPress search query strings
-  "/tag/",        // tag archive pages
-  "/category/"    // category archive pages
+  "/search",
+  "?s="           // no leading slash = substring match against the full URL
 ]
 ```
+
+**Pattern matching rules:**
+
+| Pattern | Matches |
+|---|---|
+| `"/blog"` | Only `yoursite.com/blog` — not `yoursite.com/blog/post` |
+| `"/cdn-cgi/"` | `yoursite.com/cdn-cgi/` and anything beneath it |
+| `"?s="` | Any URL containing `?s=` (substring match) |
 
 The scraper also automatically skips image/PDF/asset URLs, query strings, and known non-content paths (`/feed`, `/rss`, `/admin`, etc.).
 

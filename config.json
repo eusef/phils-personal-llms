@@ -4,11 +4,13 @@
   "description": "Developer Relations professional, photographer, and builder",
   "exclude_patterns": [
     "/llms",
-    "/cdn-cgi",
+    "/cdn-cgi/",
     "?format=json",
     "/cart",
     "/checkout",
     "/search",
-    "/.well-known"
+    "/.well-known/",
+    "/blog",
+    "/home"
   ]
 }
