@@ -6,25 +6,6 @@
 
 ## “Phil Johnston LinkedIn” (Leaving LinkedIn and Choosing Independence)
 
-URL: https://philjohnstonii.com/blog
-Summary: Explore development stories, micro-niche coding projects, and developer 
-insights on Phil Johnston, II's blog. Share and learn about innovative tech 
-workflows.
-
-“Phil Johnston LinkedIn” (Leaving LinkedIn and Choosing Independence)
-After nearly two decades on LinkedIn, I lost my account overnight due to a compromise and policy enforcement. I understand LinkedIn’s decision, but the experience forced me to confront how fragile a centralized professional identity really is. This post isn’t about blame. It’s about lessons learned, security realities, and why I’m choosing a more independent path forward.
-The Future of Micro-Niche AI Tools
-As someone who’s soon to be less relevant when it comes to technology, I am personally augmenting my workflows to include self-developed tools to help me get my work done.  One recent example is a quick script that will test server…
-Encouraging Developers to Share Their Stories in Their Own Words
-As a developer relations professional, one of our goals is to highlight the voices of the developers we work with. Recently, I’ve been focusing on inviting developers to share their projects in their own words. Here are some of the tactics and lessons learned along the way.
-Micro-niche vibe coding?
-I’ve been vibing lately with terminal UI (TUI) apps. Small personal tools that help me optimize a very specific task or workflow. I call these "Micro-Niche" tools. I can spin these tools up in an afternoon, where before I would have just kept plodding along without them.
-This is the project that finally worked!
-
----
-
-## “Phil Johnston LinkedIn” (Leaving LinkedIn and Choosing Independence)
-
 URL: https://philjohnstonii.com/blog/phil-johnston-linkedin-leaving-linkedin-and-choosing-independence
 Summary: After nearly two decades on LinkedIn, I lost my account overnight due
     to a compromise and policy enforcement. I understand LinkedIn’s
@@ -167,19 +148,6 @@ TUIs are underrated in 2025. With a little AI assist, they’ve become my go-to 
 Do you have some tools you've Vibe-coded to share?
 I’m curious, do you have any personal apps have you created to improve your flow? TUIs, scripts, automations, weird one-offs?
 Encouraging Developers to Share Their Stories in Their Own Words
-
----
-
-## Phil Johnston, II
-
-URL: https://philjohnstonii.com/home
-Summary: Phil Johnston - DevRel professional helping API-first companies drive 
-developer adoption and awareness. Creative photographer and tinkerer, from 
-ham radio to AI side projects.
-
-Phil Johnston, II
-⚙️ Developer Relations
-Patterns and stories that are both surreal and require dedication to fully understand.
 
 ---
 

@@ -4,9 +4,6 @@
 
 ## Pages
 
-- [“Phil Johnston LinkedIn” (Leaving LinkedIn and Choosing Independence)](https://philjohnstonii.com/blog): Explore development stories, micro-niche coding projects, and developer 
-insights on Phil Johnston, II's blog. Share and learn about innovative tech 
-workflows.
 - [“Phil Johnston LinkedIn” (Leaving LinkedIn and Choosing Independence)](https://philjohnstonii.com/blog/phil-johnston-linkedin-leaving-linkedin-and-choosing-independence): After nearly two decades on LinkedIn, I lost my account overnight due
     to a compromise and policy enforcement. I understand LinkedIn’s
     decision, but the experience forced me to confront how fragile a
@@ -27,9 +24,6 @@ that help me optimize a very specific task or workflow. I call these
 before I would have just kept plodding along without them.
 
 This is the project that finally worked!
-- [Phil Johnston, II](https://philjohnstonii.com/home): Phil Johnston - DevRel professional helping API-first companies drive 
-developer adoption and awareness. Creative photographer and tinkerer, from 
-ham radio to AI side projects.
 - [Phil Johnston, II](https://philjohnstonii.com/about-me)
 - [I help API-first companies build developer programs that drive adoption.](https://philjohnstonii.com/consulting)
 
