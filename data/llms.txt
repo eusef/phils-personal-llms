@@ -4,6 +4,16 @@
 
 ## Pages
 
+- [Your Developer Tool Is Invisible to AI. That’s a Problem.](https://philjohnstonii.com/blog/your-developer-tool-is-invisible-to-ai-thats-a-problem): AI tools are reshaping how developers discover and evaluate APIs and SDKs. 
+Learn what makes a developer tool visible to LLMs, why most companies are 
+behind, and tactical steps to fix it including llms.txt, JSON-LD, MCP 
+servers, and content strategy.
+- [15,000 Developers During a Pandemic: What I Learned at HERE Technologies](https://philjohnstonii.com/blog/iuqdpdkpo11dzgygsoz7j7cbiwq9zx): How Phil Johnston onboarded 15,000 developers at HERE Technologies during 
+the pandemic using digital-first DevRel, then expanded the cloud 
+marketplace by 2,250x as product manager.
+- [How I Help API-First Companies Build Developer Programs That Actually Work](https://philjohnstonii.com/blog/how-i-help-api-first-companies-build-developer-programs-that-actually-work): Phil Johnston is a fractional Head of Developer Relations helping API-first 
+companies build developer programs, partnerships, and AI discoverability. 
+15 years of experience at GoPro, BMW, HERE Technologies, and 1Password.
 - [“Phil Johnston LinkedIn” (Leaving LinkedIn and Choosing Independence)](https://philjohnstonii.com/blog/phil-johnston-linkedin-leaving-linkedin-and-choosing-independence): After nearly two decades on LinkedIn, I lost my account overnight due
     to a compromise and policy enforcement. I understand LinkedIn’s
     decision, but the experience forced me to confront how fragile a
@@ -24,6 +34,10 @@ that help me optimize a very specific task or workflow. I call these
 before I would have just kept plodding along without them.
 
 This is the project that finally worked!
+- [Phil Johnston, II](https://philjohnstonii.com/resume): Resume of Phil Johnston, II. 15 years in Developer Relations at BMW, GoPro, 
+HERE Technologies, and 1Password. Built the GoPro Developer Program to 330+ 
+partners including NASA and Google. Onboarded 15,000+ developers. Based in 
+Portland, OR.
 - [I help API-first companies build developer programs that drive adoption.](https://philjohnstonii.com/consulting): Fractional DevRel consulting for API-first companies. Services include 
 Fractional Head of DevRel ($5,000/mo), DevRel Program Audit ($2,500), and 
 AI DevRel Accelerator ($3,500-4,000). Track record with GoPro, HERE 
@@ -32,4 +46,4 @@ Technologies, and 1Password.
 ## About
 
 Source: https://philjohnstonii.com
-Last updated: 2026-03-19
+Last updated: 2026-03-20

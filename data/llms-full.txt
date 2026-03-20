@@ -4,6 +4,121 @@
 
 ---
 
+## Your Developer Tool Is Invisible to AI. That’s a Problem.
+
+URL: https://philjohnstonii.com/blog/your-developer-tool-is-invisible-to-ai-thats-a-problem
+Summary: AI tools are reshaping how developers discover and evaluate APIs and SDKs. 
+Learn what makes a developer tool visible to LLMs, why most companies are 
+behind, and tactical steps to fix it including llms.txt, JSON-LD, MCP 
+servers, and content strategy.
+
+Your Developer Tool Is Invisible to AI. That’s a Problem.
+In 2024, a developer evaluating a new library would Google it, scan the docs, maybe check a Reddit thread. In 2026, a growing number of developers skip all of that. They ask an AI assistant.
+“What’s the best authentication SDK for a Next.js app?” “Find me a geocoding API with good free tier limits.” “What tools should I use for secrets management in Kubernetes?”
+If your product doesn’t show up in those answers, you’re losing evaluations you’ll never know about. There’s no rejection email. No “we went with a competitor” notification. The AI simply never mentioned you, and the developer moved on.
+This is the new developer discovery problem, and most DevRel teams haven’t caught up to it yet.
+How Developers Actually Find Tools Now
+The shift didn’t happen overnight, but it has accelerated fast. Developers now use AI assistants at multiple points in their workflow: researching options, debugging integrations, generating boilerplate, and building prototypes. Each of those moments is a discovery opportunity, or a missed one.
+Here’s what changed. Traditional developer discovery was a funnel you could influence with conference talks, SEO, and content marketing. AI-assisted discovery is a black box. An LLM either knows about your product or it doesn’t. It either recommends you or it recommends your competitor. And unlike a Google result where you can at least buy an ad, there’s no paid placement in a ChatGPT response(yet).
+The companies winning developer attention right now are the ones treating AI discoverability as a first-class concern, not a nice-to-have they’ll get to after the next product launch.
+What Actually Makes a Product Visible to AI
+After spending 15 years building developer programs and the last two years specifically focused on AI discovery, I’ve identified the layers that determine whether an LLM recommends your tool or ignores it.
+Structured identity. AI tools build entity graphs to understand who makes what. If your company, product, and founder information is scattered across inconsistent naming, fragmented profiles, and missing structured data, LLMs can’t connect the dots. Schema.org markup (JSON-LD), consistent naming across platforms, and clear product-to-company attribution all matter. This is the foundation layer, and most startups get it wrong because they think of it as “just SEO.”
+LLM-readable content. The llms.txt standard is emerging as a way to give AI crawlers a clean summary of what your product does, who it’s for, and how to use it. Think of it as robots.txt for the AI era. A well-structured llms.txt file, combined with documentation that’s written in plain, factual language (not marketing copy), dramatically increases the chances that an LLM accurately represents your product.
+But here’s the part people miss: LLMs don’t just read your marketing page. They synthesize information from documentation, Stack Overflow answers, GitHub READMEs, blog posts, forum discussions, and tutorial content. The breadth and consistency of your content footprint matters as much as any single page.
+Tool integration. The Model Context Protocol (MCP) is changing the game for developer tools. An MCP server lets AI coding assistants interact with your API directly, pulling in docs, running queries, or generating integration code in real time. Companies that ship MCP servers are showing up in developer workflows at the exact moment of decision. It’s the difference between “the AI mentioned us” and “the AI used us.”
+Content signal depth. A single landing page won’t do it. AI tools weight detailed, specific, problem-solving content far more than feature lists. A blog post titled “How to build a delivery route optimizer with [your API]” gives an LLM something concrete to reference. A landing page that says “powerful geolocation APIs” gives it nothing useful.
+This is where DevRel and AI discoverability merge. The same content that helps developers adopt your product (tutorials, guides, case studies) is exactly the content that teaches AI tools to recommend it.
+Why Most Developer Tool Companies Are Behind
+First, the playbook hasn’t been written yet. Traditional DevRel has decades of institutional knowledge around conferences, documentation, community management, and developer marketing. AI discoverability has maybe 18 months of serious practice behind it. Most DevRel leaders are still running the 2022 playbook in a 2026 landscape.
+Second, it’s cross-functional in a way that’s uncomfortable. AI discoverability touches engineering (MCP servers, API design), marketing (structured data, content strategy), product (documentation, onboarding flows), and DevRel (tutorials, community content). No single team owns it, which means nobody prioritizes it.
+Third, the feedback loop is invisible. If your conference booth gets no traffic, you see it immediately. If an LLM stops recommending you, there’s no dashboard that shows the decline. The only signal is a gradual plateau in organic signups that nobody can explain.
+What to Do About It
+If you’re a technical founder or CTO at a developer tool company, here’s where I’d start.
+Audit your AI presence. Ask ChatGPT, Claude, and Perplexity to recommend tools in your category. If you don’t show up, or if the description is inaccurate, you have a problem. Then ask follow-up questions: “Tell me about [your product].” If the AI gives vague or outdated information, your content footprint is too thin.
+Implement structured data. At minimum, add JSON-LD Person and Product/SoftwareApplication schema to your site. This helps AI tools build accurate entity graphs. It takes a few hours and costs nothing.
+Create an llms.txt file. Publish a clean, factual summary of your product at yourdomain.com/llms.txt. Include what the product does, who it’s for, key features, pricing model, and links to documentation. Keep it straightforward. LLMs parse facts better than marketing language.
+Write problem-first content. Shift your content strategy from “features we ship” to “problems developers solve.” Every tutorial, blog post, and guide should be framed around a specific developer task. This creates the kind of content that LLMs can cite when a developer asks “how do I do X?”
+Build an MCP server. If you have an API, shipping an MCP server should be on your near-term roadmap. It puts your product inside the AI coding assistant workflow, which is increasingly where adoption decisions happen.
+Audit your identity coherence. Make sure your company name, product name, and founder names are consistent across your website, LinkedIn, GitHub, social media, and any developer directories. Fragmented identity is one of the most common reasons AI tools give confused or incomplete answers about a product.
+The Bigger Picture
+AI discoverability isn’t a separate discipline from developer relations. It’s where DevRel is heading. The skills that have always mattered in DevRel, understanding developer needs, reducing friction, creating useful content, thinking in adoption funnels, are exactly the skills needed to make a product visible to AI tools.
+The difference is that the audience now includes machines as well as humans. Documentation that’s clear enough for a junior developer to follow is also clear enough for an LLM to parse. Tutorials that solve real problems get cited by AI assistants. Structured data that helps Google also helps ChatGPT.
+The companies that figure this out early will have a compounding advantage. Every piece of content, every MCP integration, every structured data improvement makes them more visible to AI tools, which drives more adoption, which generates more community content, which makes them even more visible. The flywheel effect is real, and it’s already spinning for the companies paying attention.
+The ones that wait will wonder why their organic growth flatlined while their competitors seem to be everywhere.
+15,000 Developers During a Pandemic: What I Learned at HERE Technologies
+
+---
+
+## 15,000 Developers During a Pandemic: What I Learned at HERE Technologies
+
+URL: https://philjohnstonii.com/blog/iuqdpdkpo11dzgygsoz7j7cbiwq9zx
+Summary: How Phil Johnston onboarded 15,000 developers at HERE Technologies during 
+the pandemic using digital-first DevRel, then expanded the cloud 
+marketplace by 2,250x as product manager.
+
+15,000 Developers During a Pandemic: What I Learned at HERE Technologies
+In March 2020, every developer conference on our calendar disappeared overnight. I was leading developer relations technical content marketing at HERE Technologies, a location intelligence platform, and suddenly the entire playbook was gone. No booths, no talks, no hallway conversations, no hackathons.
+By the end of that year, we had onboarded 15,000 new developers. Here’s how, and what the numbers actually looked like.
+HERE Technologies provides location APIs and SDKs used by companies building mapping, logistics, and navigation products. When I joined in 2019, developer relations was event-heavy. Conferences, workshops, and in-person hackathons were the primary acquisition channels.
+When COVID shut everything down, we didn’t have the luxury of waiting. The platform had ambitious growth targets, and “let’s pause until events come back” wasn’t an option.
+I had also recently joined the company to implement a content marketing program designed to drive awareness and adoption of the developer offerings.
+We rebuilt the entire developer acquisition strategy around three channels that didn’t require anyone to be in the same room.
+Tutorial content at scale. We produced written and video tutorials targeting specific use cases: fleet tracking, store locators, route optimization, delivery logistics. Each tutorial was designed to get a developer from zero to a working prototype in under 30 minutes. The key was specificity. “How to build a delivery route optimizer with HERE APIs” performs better than “Getting started with HERE” because it matches what developers actually search for.
+Community engagement. We shifted from hosting events to participating in existing online communities. Stack Overflow, Reddit, Discord servers, and developer forums became the primary touchpoints. Instead of waiting for developers to come to our booth, we went where they already were.
+Media and content partnerships. We produced an Open Source Covid map, that required 1 thing, a sign up for a HERE Developer Account. This lead to 100+ media articles through technical content partnerships. These weren’t press releases. They were actual news pieces about Covid, but all contained our Covid Map visualizing in near realtime the data that media audiences craved.  In addition to the Covid Map, we embedded branding and a link to the Open Source project to create a map if the viewer wished to.  This practical, approach to content marketing got the HERE Developer program infront of millions of eyeballs and a fraction of them were even curious developers. We litterally drove developer traffic to the HERE Developer portal with technical content marketing maps.
+The developers who came through the digital channels were, on average, more qualified than conference leads. They had already read an article and were looking to build, before they ever knew about HERE. The onboarding funnel was more efficient because the content did the pre-qualification work that a booth conversation used to do.
+From DevRel to Product: The 2,250x Story
+In 2021, I transitioned from developer relations into product management for HERE’s cloud marketplace platform. This is where things got interesting from a business strategy perspective.
+The marketplace was serving a narrow vertical with limited growth potential. By applying the same developer-centric thinking to product strategy, we identified adjacent markets that the platform could serve with minimal technical changes. The result was a 2,250x expansion of the serviceable obtainable market.
+That number sounds impossible until you understand the math. The original market was deliberately narrow. Expanding it meant repositioning the platform’s value proposition and opening it to categories that had been considered out of scope. The technology didn’t change much. The strategy changed entirely.
+This experience shaped how I think about DevRel and product management as complementary disciplines. Developer relations generates the insights about what developers need. Product management turns those insights into platform decisions. When the same person holds both perspectives, the feedback loop tightens dramatically.
+What This Taught Me
+The pandemic forced a natural experiment that most DevRel teams would never have run voluntarily. It proved three things.
+Digital-first developer acquisition can outperform events. Not because events are bad, but because content scales in ways that conference booths cannot. A tutorial published in 2020 is still generating signups today. A conference booth generates leads for three days.
+Specificity wins. Developers don’t search for your product name. They search for their problem. Content that matches the problem (“how to track a delivery fleet in real time”) outperforms content that matches your product (“HERE Technologies API tutorial”).
+DevRel and product management are the same muscle. The skills that make someone good at developer relations (understanding developer needs, reducing friction, thinking in adoption funnels) are the same skills that make someone good at developer-focused product management. The HERE experience proved that to me firsthand.
+Your Developer Tool Is Invisible to AI. That’s a Problem.
+How I Help API-First Companies Build Developer Programs That Actually Work
+
+---
+
+## How I Help API-First Companies Build Developer Programs That Actually Work
+
+URL: https://philjohnstonii.com/blog/how-i-help-api-first-companies-build-developer-programs-that-actually-work
+Summary: Phil Johnston is a fractional Head of Developer Relations helping API-first 
+companies build developer programs, partnerships, and AI discoverability. 
+15 years of experience at GoPro, BMW, HERE Technologies, and 1Password.
+
+How I Help API-First Companies Build Developer Programs That Actually Work
+Most companies know they need a developer program. Fewer know how to build one. And almost none want to wait 18 months for a full-time hire to figure it out.
+That’s where I come in. I’m Phil Johnston, and I run a fractional developer relations practice focused on API-first companies that need to go from “we should probably do something for developers” to a functioning program with measurable results, fast.
+The Problem I Keep Seeing
+Here’s a pattern I’ve watched play out a dozen times: a company ships a solid API or SDK, gets some organic traction, and then realizes they need developer relations. So they open a job req. Six months later they’ve either hired someone junior who’s learning on the job, or they’ve burned through a senior candidate’s patience with a process that took too long.
+Meanwhile, their competitors launched an MCP server, published a getting-started tutorial, and showed up in the first three results when a CTO asked Claude or ChatGPT for a recommendation.
+The window for developer mindshare is shrinking. AI tools are reshaping how developers discover, evaluate, and adopt new platforms. If your product isn’t visible to LLMs and coding assistants, you’re invisible to a growing share of your audience.
+What I Actually Do
+I operate as a fractional Head of Developer Relations. That means I embed with your team part-time and run DevRel the same way I would as a full-time leader, just scoped to what matters most right now.
+In practice, that usually covers four areas.
+Developer onboarding and experience. I audit your docs, quickstart guides, and time-to-first-integration. Then I fix the gaps. At HERE Technologies, I rebuilt the developer onboarding flow and brought in 15,000 new developers during 2020, when every conference and in-person event had shut down. The answer wasn’t “wait for events to come back.” It was tutorials, video content, community engagement, and a relentless focus on reducing friction.
+Program strategy and partnerships. At GoPro, I built the Developer Program from zero. No existing partners, no SDK, no documentation. Within a few years it had 330+ partner companies, including NASA, Google, BMW, and Jaguar Land Rover, with a team of 10 engineers supporting the ecosystem. At BMW, I led the application integration program that brought Audible, Pandora, and other major brands into the connected car. These weren’t marketing exercises. They were engineering programs with real technical integrations.
+AI discoverability and tooling. This is the part most DevRel teams haven’t caught up to yet. I help companies become visible to AI assistants, coding tools, and agent frameworks. That means structured data, llms.txt files, MCP server implementations, prompt-friendly documentation, and content strategies designed for how developers actually find tools in 2026. I’ve built RAG-based tutorial generation pipelines and custom social monitoring tools. I hold a Prompt Engineering certification from the team behind Meta’s Llama project. This isn’t a bolt-on service; it’s woven into everything I do.
+Content and advocacy at scale. Across my career, I’ve produced over 123 developer tutorial videos, written technical documentation for multiple platforms, and served as the on-camera advocate for brands like GoPro and 1Password. I understand the full content pipeline from planning to production to distribution, and I know which content actually moves developers from “browsing the docs” to “shipping in production.”
+The honest answer: most companies at the Series A to Series C stage don’t need a full-time VP of DevRel. They need someone who’s done it before, can stand up the program, set the metrics, create the content engine, and either hand it off to a full-time hire or continue running it on a part-time basis.
+I’ve built developer programs from scratch three times at companies that had never had one: BMW, GoPro, and 1Password. At each one, the challenge was the same. Make the case internally, define what success looks like, hire the right people, and ship results before anyone loses patience. Fractional lets me do that for more than one company at a time, and it lets you move faster than a traditional hiring process allows.
+Here’s what I think most DevRel leaders are underestimating: the shift in how developers discover tools.
+Five years ago, developer discovery was Google, Stack Overflow, Hacker News, and word of mouth. Today, a meaningful and growing percentage of developers ask an AI assistant first. They paste an error into Claude. They ask ChatGPT for library recommendations. They use Cursor or Windsurf with MCP servers that pull in documentation automatically.
+If your API isn’t visible in those contexts, you’re losing evaluations you never even knew were happening. No one sends you a “we evaluated your product and passed” email when the AI assistant simply never mentioned you.
+At HERE Technologies, I took a cloud API marketplace from a narrow vertical to a 2,250x expansion of its serviceable obtainable market by combining developer experience strategy with product management rigor. That same kind of thinking applies to AI discoverability today. It’s not just about SEO anymore. It’s about whether your product shows up when an AI agent is building a solution for someone.
+Who This Is For
+I work best with API-first companies, developer tool startups, and platform teams that have a working product but haven’t yet built the developer go-to-market motion around it. If you have an API and you’re wondering why adoption is flat, or if you’ve heard about llms.txt and MCP servers but don’t know where to start, that’s my wheelhouse.
+I’m based in Portland, Oregon, and I’ve been remote-first since 2019. I’ve worked across automotive (BMW), consumer hardware (GoPro), location intelligence (HERE Technologies), and cybersecurity (1Password). The common thread across all of them: building ecosystems that turn a product into a platform.
+If any of this resonates, I’d like to hear about what you’re building. You can reach me through the contact form on my site.
+15,000 Developers During a Pandemic: What I Learned at HERE Technologies
+“Phil Johnston LinkedIn” (Leaving LinkedIn and Choosing Independence)
+
+---
+
 ## “Phil Johnston LinkedIn” (Leaving LinkedIn and Choosing Independence)
 
 URL: https://philjohnstonii.com/blog/phil-johnston-linkedin-leaving-linkedin-and-choosing-independence
@@ -33,6 +148,7 @@ When one company holds decades of your career graph, losing access becomes catas
 I’m grateful for what LinkedIn enabled for me over the years. It genuinely mattered. This isn’t a rejection of that history.
 It’s simply an acknowledgment that it’s time for something more resilient.
 If you’re reading this and trying to find me, you already have.
+How I Help API-First Companies Build Developer Programs That Actually Work
 The Future of Micro-Niche AI Tools
 
 ---
@@ -151,6 +267,42 @@ Encouraging Developers to Share Their Stories in Their Own Words
 
 ---
 
+## Phil Johnston, II
+
+URL: https://philjohnstonii.com/resume
+Summary: Resume of Phil Johnston, II. 15 years in Developer Relations at BMW, GoPro, 
+HERE Technologies, and 1Password. Built the GoPro Developer Program to 330+ 
+partners including NASA and Google. Onboarded 15,000+ developers. Based in 
+Portland, OR.
+
+Phil Johnston, II
+I've spent 15 years helping developers succeed on platforms most people only read about in press releases.
+At GoPro, I built the Developer Program from zero to 330 partner companies, including NASA, Google, BMW, and Jaguar Land Rover, managing a team of 10 engineers to make it happen. At BMW, I led the application integration program that brought Audible, Pandora, and other household names into the connected car. At HERE Technologies, I onboarded 15,000 developers during a global pandemic and grew a cloud marketplace's addressable market by 2,250x. Most recently at 1Password, I established the company's developer relations vision across open and closed source, led cross-functional GTM, and served as chief developer advocate and content producer.
+My work sits at the intersection of developer experience, technical product strategy, and community building. I think in terms of time-to-first-integration, developer adoption curves, and the content that actually moves people from "browsing the docs" to "shipping in production." I've built RAG-powered tutorial generation systems, custom social media monitoring tools, and the kind of developer marketing programs that produce 123 videos and measurable onboarding results.
+I hold a BS in Computer Science from the University of Portland, where I was an Entrepreneur Scholar. I'm also certified in Prompt Engineering through Dr. Elvis Savaria's program (Facebook Llama Project).
+Portland, OR. Remote-first since 2019.
+Career Timeline
+2024 - Developer Relations, 1Password (Agilebits)
+2021-2023 - Sr. Product Manager, Cloud Marketplace Platform, HERE Technologies
+2019-2021 - Sr. Program Manager, Developer Relations, HERE Technologies
+2014-2017 - Director, GoPro Developer Relations
+2011-2014 - Head of BMW Group Developer Relations
+2008 - BS Computer Science, University of Portland (Entrepreneur Scholar)
+Technical Focus
+GenAI/ML: RAG Implementation, Prompt Engineering, OpenAI APIs
+Platforms: API/SDK Product Management, Developer Experience (DX)
+Cloud: Marketplace Platforms, Self-Service Infrastructure
+Metrics: Developer Adoption, Time-to-Integration, Platform Growth
+What Sets Me Apart
+Zero-to-One DevRel Builder Three times I've built developer relations programs from scratch at companies that had never had one: BMW, GoPro, and 1Password. I know how to make the case internally, hire the team, define the metrics, and ship results before anyone loses patience.
+Enterprise Partnership DNA My developer programs haven't just attracted hobbyists. I've built ecosystems that brought in NASA, Google, BMW, Jaguar Land Rover, JPL, and Hot Wheels. I understand how to design programs that serve both indie builders and Fortune 500 engineering teams.
+2,250x Market Growth At HERE Technologies, I took a cloud API marketplace from a narrow segment to a 2,250x expansion of its serviceable obtainable market. That's not a typo. That's what happens when developer experience strategy meets product management rigor.
+15,000 Developers Onboarded During a Pandemic When COVID shut down every conference and meetup in 2020, I pivoted HERE's developer relations to fully digital, onboarding 15,000 developers and generating 100+ media articles through tutorials, video content, and community engagement.
+AI-Native Practitioner I'm not just talking about AI. I've built RAG-based tutorial generation pipelines, custom social monitoring tools for Bluesky and Mastodon, and I hold a Prompt Engineering certification from the team behind Facebook's Llama project. I bring hands-on GenAI fluency to everything I do.
+Content at Scale Across my career, I've produced and directed 123+ developer tutorial videos, written technical documentation, and served as the on-camera advocate for multiple brands. I understand the full pipeline from scripting to shooting to distribution.
+
+---
+
 ## I help API-first companies build developer programs that drive adoption.
 
 URL: https://philjohnstonii.com/consulting
@@ -174,4 +326,4 @@ Book a 15-minute call
 ---
 
 Source: https://philjohnstonii.com
-Last updated: 2026-03-19
+Last updated: 2026-03-20
