@@ -40,6 +40,7 @@ Why This Matters Now
 If my argument from the last post holds, that most business software is a regenerable UI layer over commodity logic, then the moat shifts. It is no longer about the application. It is about the data format and the interface contract.
 The companies that own the standards will have the same structural advantage that USB-IF has over every peripheral manufacturer. They will not make the tools. They will define the contracts that make the tools interoperable. And in a world where the tools themselves are generated on the fly, that contract layer becomes the most valuable piece of the stack.
 The next post in this series covers the other half of the reliability question: what happens when on-demand software needs to be trustworthy enough to use twice. That is where software development lifecycle practices come in, and why vibe coding is great for prototypes but terrible for anything you need to depend on.
+Building GoPro’s Developer Program from Zero to 330 Partners
 The Last SaaS You’ll Ever Subscribe To
 
 ---
@@ -437,4 +438,4 @@ Book a 15-minute call
 ---
 
 Source: https://philjohnstonii.com
-Last updated: 2026-03-24
+Last updated: 2026-03-25
